@@ -1,0 +1,71 @@
+@import "variables/app-var.scss";
+
+body{
+    background: #FFF;
+}
+
+img{
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.jumbotron{
+    background: $bodyColor + green;
+    margin-bottom: 150px;
+}
+
+.main-btn{
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 170px;
+}
+
+.main-title{
+    margin-top: 50px;
+    padding: 50px auto 20px auto;
+}
+
+.main{
+    padding: 50px;
+    //min-height: $min-height;
+}
+
+#dvPreview {
+    // padding: $padding;
+    // min-height: $min-height;
+}
+
+.btn-filter{
+    margin: $padding;
+    padding: $padding -20px;
+    width: 33%;
+}
+
+.btn-save, .btn-upload-new{
+    display: none;
+}
+
+img{
+    &.filters0 {
+        filter: grayscale(100%);
+    }
+    &.filters1 {
+        filter: sepia(100%);
+    }
+    &.filters2 {
+        filter: hue-rotate(100%);
+    }
+    &.filters3 {
+        filter: blur(100%);
+    }
+    &.filters4 {
+        filter: opacity(100%);
+    }
+    &.filters5 {
+        filter: invert(100%);
+    }
+    &.filters6 {
+        filter: saturate(20%);
+    }
+}
+
