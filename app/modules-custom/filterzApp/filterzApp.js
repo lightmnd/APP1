@@ -53,6 +53,7 @@ const fileUpload = document.getElementById("fileupload");
                                         setTimeout(() =>{
                                         const btnNew = document.getElementsByClassName('upload-new');
                                         console.log("btnNew", btnNew)
+
                                         btnNew[0].style.display = "block";
                                              setTimeout(() =>{
                                                 if (btnNew[0].style.display != "none") {
@@ -78,6 +79,7 @@ const fileUpload = document.getElementById("fileupload");
                 } else {
                     alert(file.name + " is not a valid image file.");
                     dvPreview.innerHTML = "";
+                    console.log(">>>", file.name)
                     return false;
                 }
             }
