@@ -31,7 +31,6 @@ const fileUpload = document.getElementById("fileupload");
                                 mainBtn.remove();
                             }, 300);
                             let filtBtn = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-                            console.log(filtBtn)
                             for (let i = 1; i < filtBtn.length+1; i++){
                             let slider = document.createElement('input');
                             const filters = document.createElement('button');
@@ -67,7 +66,7 @@ const fileUpload = document.getElementById("fileupload");
 
                                             }, 500)
                                         })                               
-                                    }, 2000)
+                                    }, 1500)
                                 });
                             }
                             slider.onchange = function(e){
