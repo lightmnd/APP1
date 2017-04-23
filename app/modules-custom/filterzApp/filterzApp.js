@@ -1,8 +1,11 @@
+import { filterzApp } from '../../index.js';
 import { wc } from '../../windowLogger';
 import windowLogger from '../../windowLogger';
 //import animation from './animation.js';
 //import { fadeOutIn } from './animation.js';
-import Fade from './animation';
+import animation from './animation';
+import { effect } from './animation';
+//import session from '../session/session';
 
 export default () => {
 const fileUpload = document.getElementById("fileupload");
@@ -17,47 +20,58 @@ const fileUpload = document.getElementById("fileupload");
                     let reader = new FileReader();
                     reader.onload = function (e) {
                         let img = document.createElement("IMG");
-                        // img.height = "100";
-                        // img.width = "100";
+                       // img.height = "700";
+                        //img.width = "700";
                         img.src = e.target.result;
-
                         dvPreview.appendChild(img);
-
-                            const mainBtn = document.getElementsByClassName('main-btn');
-                            mainBtn[0].style.opacity += 0.1;
+                            const mainBtn = document.getElementById('fileupload');
+                            mainBtn.style.opacity += 0.1;
                             setTimeout(() => {
-                                mainBtn[0].style.display = "none";
+                                //mainBtn[0].style.display = "none";
+                                mainBtn.remove();
                             }, 300);
-
-                            let filtBtn = ["1", "2", "3", "4", "5", "6", "7"];
-                            for (let i = 0; i < filtBtn.length; i++){
+                            let filtBtn = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+                            for (let i = 1; i < filtBtn.length+1; i++){
+                            let slider = document.createElement('input');
                             const filters = document.createElement('button');
-                            filters.setAttribute('class', 'btn btn-secondary center-block btn-filter filters' + i);
-                            let t = document.createTextNode('Filters' + i);
+                            slider.id = "volume";
+                            slider.type = 'range';
+                            slider.min = 0;
+                            slider.max = 100;
+                            slider.value = 0.5;
+                            slider.step = 0.1;
+                            slider.classList.add('slider' + i);
+                            filters.appendChild(slider);
+                            filters.setAttribute('class', 'btn btn-secondary bg-inverse center-block btn-filter filters' + i);
+                            let t = document.createTextNode('Filters ' + i);
+                            //filters.style.color ='#FFF';
                             filters.appendChild(t);
                             dvPreview.appendChild(filters);
                                 filters.addEventListener("click", () =>{
                                     img.setAttribute('class', 'filters' + i)                                
                                     setTimeout(() => {
-                                        const btnSave = document.getElementsByClassName('btn-save');
-                                        btnSave[0].style.display = "block"; 
                                         setTimeout(() =>{
-                                        const btnNew = document.getElementsByClassName('btn-upload-new');
+                                        const btnNew = document.getElementsByClassName('upload-new');
                                         console.log("btnNew", btnNew)
-                                            setTimeout(() =>{
+                                        btnNew[0].style.display = "block";
+                                             setTimeout(() =>{
+                                                if (btnNew[0].style.display != "none") {
+                                                    btnNew[0].addEventListener('click', () => {
+                                                        dvPreview.innerHTML = "";
+                                                        // mainBtn[0].style.display = "block";                                                        
+                                                        // mainBtn[0].style.opacity = 1;+
+                                                        window.location.reload();
+                                                    });
+                                                };
 
-                                                //fadeIn Button Upload New
-                                                function ready(){
-                                                    fadeOutIn(btnNew, 2000 );
-                                                }
-                                                ready()
-                                                    
-                                                // btnNew[0].style.opacity -= 0.1;
-                                                // btnNew[0].style.display = "block"; 
                                             }, 500)
                                         })                               
                                     }, 2000)
-                                })
+                                });
+                            }
+                            slider.onchange = function(e){
+                                let val = e.target.value;
+                                console.log(val)
                             }
                     }
                     reader.readAsDataURL(file);

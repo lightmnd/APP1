@@ -2,19 +2,18 @@ import filterzApp from './filterzApp';
 import { wc } from '../../windowLogger';
 import windowLogger from '../../windowLogger';
 
-export default class Fade{
+export function effect(){
     
-    constructor(elem, speed){
-        this.elem = elem || ""
-        this.speed = speed || 2000
+    const box = document.getElementsByClassName('btn-upload-new');
+    let efx = function fadeOutIn(elem, speed ) {
+        let inInterval = setTimeout(() => {
+        console.log("elem", elem, " - ", speed)
+        if (elem[0]){
+                elem[0].style.display = 'block';                
+            }  
+        console.log("interv", inInterval)
+        }, speed / 50 );
     }
 
-    getFade(){
-        return this.elem;
-    }
-
-    getSpeed(){
-        return this.speed;
-    }
-
+   efx(box, 2000);
 }

@@ -1,3 +1,17 @@
-$bodyColor: #cfcfcf;
+/* Main Variables */
+$bodyColor: red;
 $padding: 30px;
 $min-height: 1400px;
+// $bgbody: image-url('../bg.jpg', false, false);
+ 
+/* Image Filters */
+$filter1: grayscale(1);
+$filter2: sepia(1);
+$filter3: hue-rotate(90deg);
+$filter4: blur(5px);
+$filter5: opacity(.1);
+$filter6: invert(.8);
+$filter7: saturate(8);
+$filter8: brightness(3);
+$filter9: contrast(4);
+$filter10: drop-shadow(16px 16px 10px rgba(0,0,0,0.9))

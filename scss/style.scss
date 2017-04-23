@@ -1,71 +1,172 @@
 @import "variables/app-var.scss";
+@import "mixins/app-mix.scss";
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
-body{
-    background: #FFF;
+body {
+    @include cover-background("../images/bg.jpg");
+    // // background-image: $background-image;
+    // background-repeat: no-repeat;
+    // background-image: $bgbody;
+    // background-position: center top;
+    // background-attachment: scroll;
+    margin-top: 100px;
+    font-family: Alegreya Sans, monospace;
 }
 
-img{
-    max-width: 100%;
-    overflow: hidden;
+.container {
+    min-width: 70% !important;
+    position: relative;
+    z-index: 2;
 }
 
-.jumbotron{
+.jumbotron {
     background: $bodyColor + green;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
-.main-btn{
+.main-section {
+    padding-bottom: -10px !important;
+}
+
+.main-btn {
     padding: 20px;
     margin-top: 100px;
     margin-bottom: 170px;
+    border-radius: 10px;
 }
 
-.main-title{
+.main-title {
     margin-top: 50px;
     padding: 50px auto 20px auto;
 }
 
-.main{
+.main {
     padding: 50px;
-    //min-height: $min-height;
 }
 
-#dvPreview {
-    // padding: $padding;
-    // min-height: $min-height;
+#dvPreview img {
+    max-width: 100%;
+    min-width: 100%;
+    padding: $padding;
+    margin-top:0;
 }
 
-.btn-filter{
+.fa-arrow-down {
+    color: #FFF;
+    font-size: 37px;
+}
+
+div.live-preview {
+    @include anim;
+}
+
+button.btn-filter {
     margin: $padding;
     padding: $padding -20px;
-    width: 33%;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
 }
 
-.btn-save, .btn-upload-new{
+#volume {
+    display: block;
+    top: 89px;
+    position: relative;
+    right: 20px;
+}
+
+#dvPreview > button.btn.btn-secondary.bg-inverse.center-block.btn-filter{
+    color: #FFF !important;
+}
+
+.btn-filter:last-of-type {
+    clear: both;
+}
+
+button.upload-new {
+    margin-top: 50px;
+    height: 180px;
+    width: 180px;
     display: none;
+    color: #3f3f3f;
+    background-color: #FFF !important;
+    border-radius: 50%;
 }
 
-img{
-    &.filters0 {
-        filter: grayscale(100%);
-    }
+button.upload-new:hover {
+    color: #3f3f3f;
+}
+
+.btn-toolbar {
+    margin: 0 auto;
+}
+
+img {
     &.filters1 {
-        filter: sepia(100%);
+        -webkit-filter: $filter1;
+        filter: $filter1;
     }
     &.filters2 {
-        filter: hue-rotate(100%);
+        -webkit-filter: $filter2;
+        filter: $filter2;
     }
     &.filters3 {
-        filter: blur(100%);
+        -webkit-filter: $filter3;
+        filter: $filter3;
     }
     &.filters4 {
-        filter: opacity(100%);
+        -webkit-filter: $filter4;
+        filter: $filter4;
     }
     &.filters5 {
-        filter: invert(100%);
+        -webkit-filter: $filter5;
+        filter: $filter5;
     }
     &.filters6 {
-        filter: saturate(20%);
+        -webkit-filter: $filter6;
+        filter: $filter6;
+    }
+    &.filters7 {
+        -webkit-filter: $filter7;
+        filter: $filter7;
+    }
+    &.filters8 {
+        -webkit-filter: $filter8;
+        filter: $filter8;
+    }
+    &.filters9 {
+        -webkit-filter: $filter9;
+        filter: $filter9;
+    }
+    &.filters10 {
+        -webkit-filter: $filter10;
+        filter: $filter10;
     }
 }
 
+div.ads-banner > ins.adsbygoogle{
+    margin: 10px auto;
+}
+
+a#skinlink {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 1;
+}
+
+/* media queries */
+@media(min-width: 500px) { 
+    .myads { 
+        width: 468px; height: 60px; 
+        } 
+    }
+
+@media(min-width: 800px) { 
+    .myads {
+         width: 728px; height: 90px; 
+    } 
+}
