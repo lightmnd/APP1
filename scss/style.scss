@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
 
 body {
-    @include cover-background("../images/bg.jpg");
+    //@include cover-background("../images/bg.jpg");
     // // background-image: $background-image;
     // background-repeat: no-repeat;
     // background-image: $bgbody;
@@ -156,6 +156,11 @@ a#skinlink {
   right: 0;
   display: block;
   z-index: 1;
+}
+
+#target{
+    width:300px;
+    height:200px;
 }
 
 /* media queries */

@@ -20,6 +20,7 @@ const fileUpload = document.getElementById("fileupload");
                     let reader = new FileReader();
                     reader.onload = function (e) {
                         let img = document.createElement("IMG");
+                        img.setAttribute('id', 'target')
                        // img.height = "700";
                         //img.width = "700";
                         img.src = e.target.result;
@@ -47,7 +48,7 @@ const fileUpload = document.getElementById("fileupload");
                             //filters.style.color ='#FFF';
                             filters.appendChild(t);
                             dvPreview.appendChild(filters);
-                                filters.addEventListener("click", () =>{
+                                filters.addEventListener("click", () => {
                                     img.setAttribute('class', 'filters' + i)                                
                                     setTimeout(() => {
                                         setTimeout(() =>{
